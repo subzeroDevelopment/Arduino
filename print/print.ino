@@ -1,0 +1,2427 @@
+
+
+/*
+   Stepper_bipolar sketch
+
+     stepper is controlled from the serial port.
+   a numeric value followed by '+' or '-' steps the motor
+
+
+   http://www.arduino.cc/en/Reference/Stepper
+*/
+#include <Stepper.h>
+#include <Servo.h>
+// change this to the number of steps on your motor
+#define STEPS 48
+// create an instance of the stepper class, specifying
+// the number of steps of the motor and the pins it's
+// attached to
+Stepper stepper1(STEPS, 2, 3, 4, 5);
+Stepper stepper2(STEPS, 8, 9, 10, 11);
+
+
+Servo myservo;
+void setup() {
+  // set the speed of the motor to 30 RPM
+
+  stepper1.setSpeed(30);
+  stepper2.setSpeed(30);
+  //poner el servo abajo
+
+  myservo.attach(6);  // attaches the servo on pin 9 to the servo object
+  myservo.write(68);
+
+  Serial.begin(9600);
+}
+void loop() {
+
+
+  if ( Serial.available()) {
+    char ch = Serial.read();
+
+    if (ch == ' ') {
+      myservo.write(50);
+      stepper1.step(24);
+      //bajar servo
+      myservo.write(68);
+    }
+
+    if (ch == 'a') {
+      a();
+    }
+    if (ch == 'b') {
+      b();
+    }
+    if (ch == 'c') {
+      c();
+    }
+    if (ch == 'd') {
+      d();
+    }
+    if (ch == 'e') {
+      e();
+    }
+    if (ch == 'f') {
+      f();
+    }
+    if (ch == 'g') {
+      g();
+    }
+    if (ch == 'h') {
+      h();
+    }
+    if (ch == 'i') {
+      i();
+    }
+    if (ch == 'j') {
+      j();
+    }
+    if (ch == 'k') {
+      k();
+    }
+    if (ch == 'l') {
+      l();
+    }
+    if (ch == 'm') {
+      m();
+    }
+    if (ch == 'n') {
+      n();
+    }
+    if (ch == 'o') {
+      o();
+    }
+    if (ch == 'p') {
+      p();
+    }
+    if (ch == 'q') {
+      q();
+    }
+    if (ch == 'r') {
+      r();
+    }
+    if (ch == 's') {
+      s();
+    }
+    if (ch == 't') {
+      t();
+    }
+    if (ch == 'u') {
+      u();
+    }
+    if (ch == 'v') {
+      v();
+    }
+    if (ch == 'w') {
+      w();
+    }
+    if (ch == 'x') {
+      x();
+    }
+    if (ch == 'y') {
+      y();
+    }
+    if (ch == 'z') {
+      z();
+    }
+
+
+  }
+  for (int i = 2; i < 6; i++) {
+    digitalWrite(i, LOW);
+  }
+  for (int i = 8; i < 12; i++) {
+    digitalWrite(i, LOW);
+  }
+  myservo.write(50);
+  
+}
+
+void a() {
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(4);
+  stepper2.step(2);
+  stepper1.step(4);
+  stepper2.step(2);
+  stepper1.step(5);
+  stepper2.step(1);
+  stepper1.step(5);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper1.step(-10);
+  stepper2.step(-8);
+  stepper1.step(-7);
+  stepper2.step(-7);
+  stepper1.step(-3);
+  stepper2.step(-5);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(1);
+  stepper1.step(4);
+  stepper2.step(2);
+  stepper1.step(5);
+  stepper2.step(4);
+  stepper1.step(4);
+  stepper2.step(6);
+  stepper1.step(4);
+  stepper2.step(8);
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper2.step(-9);
+  stepper1.step(-1);
+  stepper2.step(-7);
+  stepper2.step(-6);
+  stepper1.step(1);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper2.step(7);
+}
+void b() {
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper2.step(10);
+  stepper1.step(2);
+  stepper2.step(7);
+  stepper2.step(6);
+  stepper1.step(-1);
+  stepper2.step(4);
+  stepper1.step(-1);
+  stepper2.step(1);
+  stepper1.step(-1);
+  stepper2.step(-1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-6);
+  stepper1.step(2);
+  stepper2.step(-8);
+  stepper1.step(5);
+  stepper2.step(-10);
+
+  stepper1.step(1);
+  stepper1.step(6);
+  stepper2.step(2);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper2.step(3);
+  stepper1.step(-2);
+  stepper2.step(2);
+  stepper1.step(-3);
+  stepper2.step(1);
+  stepper1.step(-4);
+  stepper2.step(1);
+  stepper1.step(-5);
+  stepper1.step(-6);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(4);
+  stepper1.step(4);
+  stepper2.step(-1);
+  stepper1.step(4);
+  stepper2.step(-2);
+  stepper1.step(4);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-3);
+  stepper1.step(3);
+  stepper2.step(-4);
+}
+
+void c() {
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(5);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(5);
+  stepper2.step(3);
+  stepper1.step(4);
+  stepper2.step(1);
+  stepper1.step(6);
+  stepper1.step(5);
+  stepper2.step(-2);
+
+  stepper1.step(1);
+  stepper1.step(-8);
+  stepper2.step(2);
+  stepper1.step(-7);
+  stepper2.step(-3);
+  stepper1.step(-4);
+  stepper2.step(-4);
+  stepper1.step(-3);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-7);
+  stepper2.step(-5);
+  stepper1.step(3);
+  stepper2.step(-5);
+  stepper1.step(5);
+  stepper2.step(-2);
+  stepper1.step(7);
+  stepper2.step(2);
+  stepper1.step(9);
+  stepper2.step(6);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+
+}
+void d() {
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper2.step(4);
+  stepper1.step(-1);
+  stepper2.step(5);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-5);
+
+  stepper1.step(1);
+  stepper1.step(-6);
+  stepper2.step(5);
+  stepper1.step(-5);
+  stepper2.step(1);
+  stepper1.step(-3);
+  stepper2.step(-1);
+  stepper1.step(-2);
+  stepper2.step(-4);
+  stepper1.step(-2);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-4);
+  stepper1.step(2);
+  stepper2.step(-3);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(5);
+  stepper2.step(3);
+  stepper1.step(6);
+  stepper2.step(7);
+
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper2.step(9);
+  stepper1.step(2);
+  stepper2.step(6);
+  stepper1.step(-1);
+  stepper2.step(5);
+  stepper1.step(-1);
+  stepper2.step(3);
+  stepper1.step(-1);
+  stepper2.step(1);
+  stepper2.step(-2);
+  stepper2.step(-4);
+  stepper1.step(3);
+  stepper2.step(-7);
+  stepper1.step(5);
+  stepper2.step(-10);
+  stepper1.step(9);
+  stepper2.step(-13);
+
+}
+void e() {
+  stepper1.step(1);
+  stepper1.step(6);
+  stepper2.step(3);
+  stepper1.step(5);
+  stepper2.step(3);
+  stepper1.step(5);
+  stepper2.step(3);
+  stepper1.step(5);
+  stepper2.step(3);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(2);
+
+  stepper1.step(1);
+  stepper1.step(-4);
+  stepper2.step(1);
+  stepper1.step(-4);
+  stepper2.step(-1);
+  stepper1.step(-4);
+  stepper2.step(-3);
+  stepper1.step(-3);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-5);
+  stepper2.step(-5);
+  stepper1.step(3);
+  stepper2.step(-5);
+  stepper1.step(4);
+  stepper2.step(-4);
+  stepper1.step(6);
+  stepper2.step(-2);
+  stepper1.step(8);
+
+}
+
+void f() {
+  stepper1.step(1);
+  stepper1.step(8);
+  stepper2.step(7);
+  stepper1.step(7);
+  stepper2.step(7);
+  stepper1.step(6);
+  stepper2.step(8);
+  stepper1.step(4);
+  stepper2.step(8);
+  stepper1.step(4);
+  stepper2.step(7);
+  stepper1.step(2);
+  stepper2.step(7);
+  stepper1.step(1);
+  stepper2.step(7);
+  stepper1.step(1);
+  stepper2.step(5);
+  stepper1.step(-1);
+  stepper2.step(4);
+  stepper1.step(-2);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper1.step(-5);
+  stepper2.step(-6);
+  stepper1.step(-4);
+  stepper2.step(-8);
+  stepper1.step(-4);
+  stepper2.step(-9);
+  stepper1.step(-2);
+  stepper2.step(-10);
+  stepper1.step(-2);
+  stepper2.step(-11);
+  stepper1.step(-1);
+  stepper2.step(-11);
+  stepper1.step(-1);
+  stepper2.step(-11);
+  stepper2.step(-11);
+  stepper2.step(-9);
+  stepper1.step(1);
+  stepper2.step(-8);
+
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(5);
+  stepper2.step(6);
+  stepper1.step(-1);
+  stepper2.step(6);
+  stepper1.step(-2);
+  stepper2.step(4);
+  stepper1.step(-3);
+  stepper2.step(4);
+  stepper1.step(-3);
+  stepper2.step(1);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper2.step(1);
+  stepper1.step(4);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(4);
+  stepper2.step(1);
+}
+
+void g() {
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(5);
+  stepper2.step(1);
+  stepper1.step(6);
+
+  stepper1.step(1);
+  stepper1.step(-9);
+  stepper2.step(-1);
+  stepper1.step(-6);
+  stepper2.step(-4);
+  stepper1.step(-3);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-6);
+  stepper1.step(2);
+  stepper2.step(-5);
+  stepper1.step(4);
+  stepper2.step(-3);
+  stepper1.step(5);
+  stepper1.step(5);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(8);
+  stepper2.step(13);
+
+  stepper1.step(1);
+  stepper2.step(-9);
+  stepper1.step(-1);
+  stepper2.step(-9);
+  stepper1.step(-1);
+  stepper2.step(-8);
+  stepper1.step(-2);
+  stepper2.step(-7);
+  stepper1.step(-2);
+  stepper2.step(-7);
+  stepper1.step(-2);
+  stepper2.step(-6);
+  stepper1.step(-2);
+  stepper2.step(-6);
+  stepper1.step(-2);
+  stepper2.step(-4);
+  stepper1.step(-3);
+  stepper2.step(-4);
+  stepper1.step(-2);
+  stepper2.step(-3);
+
+  stepper1.step(1);
+  stepper1.step(-3);
+  stepper1.step(-1);
+  stepper2.step(2);
+  stepper1.step(-1);
+  stepper2.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(3);
+  stepper2.step(5);
+  stepper1.step(5);
+  stepper2.step(5);
+  stepper1.step(6);
+  stepper2.step(5);
+  stepper1.step(8);
+  stepper2.step(4);
+
+}
+
+void h() {
+  stepper1.step(1);
+  stepper1.step(5);
+  stepper2.step(6);
+  stepper1.step(5);
+  stepper2.step(6);
+  stepper1.step(5);
+  stepper2.step(7);
+  stepper1.step(4);
+  stepper2.step(8);
+  stepper1.step(4);
+  stepper2.step(8);
+  stepper1.step(3);
+  stepper2.step(7);
+  stepper1.step(2);
+  stepper2.step(7);
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper2.step(5);
+  stepper2.step(4);
+
+  stepper1.step(1);
+  stepper1.step(-5);
+  stepper2.step(-3);
+  stepper1.step(-4);
+  stepper2.step(-5);
+  stepper1.step(-3);
+  stepper2.step(-7);
+  stepper1.step(-2);
+  stepper2.step(-7);
+  stepper1.step(-2);
+  stepper2.step(-7);
+  stepper1.step(-1);
+  stepper2.step(-7);
+  stepper2.step(-7);
+  stepper2.step(-7);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-7);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(1);
+  stepper1.step(4);
+  stepper2.step(1);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-2);
+
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(1);
+
+
+}
+void i() {
+  stepper1.step(1);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper2.step(-5);
+  stepper1.step(-1);
+  stepper2.step(-5);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-4);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-2);
+  stepper1.step(4);
+  stepper2.step(-2);
+  stepper1.step(4);
+  stepper1.step(4);
+}
+void j() {
+  stepper1.step(1);
+  stepper1.step(4);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper2.step(-14);
+  stepper1.step(-1);
+  stepper2.step(-11);
+  stepper2.step(-9);
+  stepper1.step(-1);
+  stepper2.step(-8);
+  stepper1.step(-1);
+  stepper2.step(-5);
+  stepper1.step(-1);
+  stepper2.step(-5);
+  stepper1.step(-2);
+  stepper2.step(-4);
+  stepper1.step(-2);
+  stepper2.step(-2);
+  stepper1.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-2);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper2.step(4);
+  stepper2.step(5);
+  stepper2.step(5);
+  stepper1.step(1);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(4);
+  stepper2.step(4);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(5);
+  stepper2.step(3);
+  stepper1.step(6);
+  stepper2.step(1);
+  stepper1.step(7);
+
+}
+void k() {
+  stepper1.step(1);
+  stepper1.step(7);
+  stepper2.step(6);
+  stepper1.step(6);
+  stepper2.step(7);
+  stepper1.step(5);
+  stepper2.step(8);
+  stepper1.step(4);
+  stepper2.step(8);
+  stepper1.step(4);
+  stepper2.step(7);
+  stepper1.step(2);
+  stepper2.step(8);
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper1.step(-1);
+  stepper2.step(4);
+  stepper1.step(-2);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper1.step(-3);
+  stepper1.step(-3);
+  stepper2.step(-3);
+  stepper1.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-5);
+  stepper1.step(-1);
+  stepper2.step(-7);
+  stepper1.step(-1);
+  stepper2.step(-7);
+  stepper1.step(-1);
+  stepper2.step(-8);
+  stepper1.step(-1);
+  stepper2.step(-9);
+  stepper1.step(-1);
+  stepper2.step(-10);
+  stepper1.step(-2);
+  stepper2.step(-10);
+
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(1);
+  stepper1.step(3);
+  stepper1.step(4);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-1);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper1.step(-3);
+  stepper1.step(-2);
+  stepper2.step(-1);
+  stepper1.step(-3);
+  stepper1.step(-3);
+  stepper2.step(1);
+  stepper1.step(-3);
+  stepper2.step(1);
+  stepper1.step(-2);
+  stepper2.step(1);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-5);
+  stepper1.step(1);
+  stepper2.step(-4);
+  stepper1.step(2);
+  stepper2.step(-5);
+  stepper1.step(2);
+  stepper2.step(-3);
+  stepper1.step(3);
+  stepper2.step(-3);
+  stepper1.step(3);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(3);
+  stepper2.step(1);
+}
+void l() {
+  stepper1.step(1);
+  stepper1.step(7);
+  stepper2.step(7);
+  stepper1.step(7);
+  stepper2.step(8);
+  stepper1.step(6);
+  stepper2.step(8);
+  stepper1.step(4);
+  stepper2.step(8);
+  stepper1.step(3);
+  stepper2.step(8);
+  stepper1.step(2);
+  stepper2.step(7);
+  stepper1.step(1);
+  stepper2.step(7);
+  stepper2.step(5);
+  stepper1.step(-1);
+  stepper2.step(4);
+  stepper1.step(-2);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper1.step(-6);
+  stepper2.step(-4);
+  stepper1.step(-4);
+  stepper2.step(-9);
+  stepper1.step(-2);
+  stepper2.step(-11);
+  stepper2.step(-12);
+  stepper1.step(1);
+  stepper2.step(-11);
+  stepper1.step(3);
+  stepper2.step(-8);
+  stepper1.step(4);
+  stepper2.step(-6);
+  stepper1.step(5);
+  stepper2.step(-3);
+  stepper1.step(6);
+  stepper1.step(5);
+  stepper2.step(1);
+
+}
+
+void m() {
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-2);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-3);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(3);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper2.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper2.step(-1);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-1);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-1);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(-2);
+
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+}
+
+void n() {
+  stepper1.step(1);
+  stepper1.step(4);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(3);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper1.step(1);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper2.step(-2);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(7);
+  stepper1.step(1);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(3);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper2.step(-3);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(2);
+}
+
+void o() {
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(6);
+  stepper2.step(2);
+  stepper1.step(6);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper1.step(-4);
+  stepper2.step(1);
+  stepper1.step(-3);
+  stepper1.step(-3);
+  stepper1.step(-2);
+  stepper2.step(-1);
+  stepper1.step(-2);
+  stepper2.step(-1);
+  stepper1.step(-2);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-1);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-3);
+
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(2);
+
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(2);
+  stepper2.step(2);
+  stepper2.step(1);
+  stepper2.step(2);
+  stepper1.step(-1);
+  stepper2.step(1);
+  stepper1.step(-1);
+  stepper2.step(2);
+  stepper1.step(-1);
+  stepper2.step(1);
+  stepper1.step(-1);
+  stepper2.step(1);
+  stepper1.step(-2);
+  stepper2.step(1);
+
+  stepper1.step(1);
+  stepper1.step(-4);
+  stepper1.step(-2);
+  stepper1.step(-2);
+  stepper2.step(-1);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(3);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper1.step(1);
+
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-2);
+
+}
+
+void p() {
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper2.step(-11);
+  stepper1.step(-1);
+  stepper2.step(-10);
+  stepper1.step(-1);
+  stepper2.step(-9);
+  stepper1.step(-2);
+  stepper2.step(-8);
+  stepper1.step(-1);
+  stepper2.step(-7);
+  stepper1.step(-1);
+  stepper2.step(-5);
+  stepper1.step(-2);
+  stepper2.step(-5);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(-2);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-2);
+
+  stepper1.step(1);
+  stepper2.step(5);
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper2.step(5);
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper1.step(2);
+  stepper2.step(7);
+  stepper1.step(1);
+  stepper2.step(7);
+  stepper1.step(2);
+  stepper2.step(7);
+  stepper1.step(2);
+  stepper2.step(7);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-2);
+
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper1.step(-2);
+  stepper2.step(-1);
+  stepper1.step(-1);
+  stepper2.step(-2);
+
+  stepper1.step(1);
+  stepper1.step(-3);
+  stepper1.step(-2);
+  stepper2.step(1);
+  stepper1.step(-2);
+  stepper1.step(-2);
+  stepper2.step(2);
+  stepper1.step(-2);
+  stepper2.step(1);
+  stepper1.step(-2);
+  stepper2.step(2);
+  stepper1.step(-1);
+  stepper2.step(2);
+  stepper1.step(-1);
+  stepper2.step(2);
+  stepper2.step(3);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(2);
+  stepper2.step(-3);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(4);
+  stepper2.step(1);
+  stepper1.step(4);
+
+}
+void q() {
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(5);
+  stepper2.step(3);
+  stepper1.step(5);
+  stepper2.step(2);
+  stepper1.step(6);
+  stepper2.step(1);
+
+  stepper1.step(1);
+  stepper1.step(-5);
+  stepper1.step(-4);
+  stepper2.step(-1);
+  stepper1.step(-4);
+  stepper2.step(-2);
+  stepper1.step(-3);
+  stepper2.step(-2);
+  stepper1.step(-2);
+  stepper2.step(-2);
+  stepper1.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-3);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(3);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper2.step(2);
+
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper2.step(-6);
+  stepper1.step(-2);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-6);
+  stepper1.step(-2);
+  stepper2.step(-7);
+  stepper1.step(-1);
+  stepper2.step(-6);
+
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(1);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper2.step(2);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(1);
+  stepper2.step(2);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+
+  stepper1.step(1);
+  stepper1.step(-3);
+  stepper1.step(-2);
+  stepper1.step(-2);
+  stepper1.step(-2);
+  stepper1.step(-2);
+  stepper1.step(-2);
+  stepper1.step(-2);
+  stepper1.step(-3);
+  stepper1.step(-2);
+  stepper1.step(-2);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+
+}
+
+void r() {
+  stepper1.step(1);
+  stepper1.step(5);
+  stepper2.step(6);
+  stepper1.step(5);
+  stepper2.step(5);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper2.step(2);
+  stepper2.step(2);
+  stepper2.step(1);
+
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper1.step(-3);
+  stepper2.step(-3);
+  stepper1.step(-3);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-2);
+  stepper1.step(4);
+  stepper2.step(-1);
+  stepper1.step(5);
+  stepper1.step(5);
+  stepper2.step(1);
+
+}
+void s() {
+  stepper1.step(1);
+  stepper1.step(5);
+  stepper2.step(3);
+  stepper1.step(6);
+  stepper2.step(4);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(2);
+  stepper2.step(1);
+
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper2.step(-1);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(-2);
+  stepper2.step(-3);
+
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper1.step(-3);
+  stepper1.step(-1);
+  stepper2.step(1);
+  stepper1.step(-2);
+  stepper2.step(1);
+  stepper1.step(-2);
+  stepper2.step(1);
+  stepper1.step(-1);
+  stepper2.step(1);
+  stepper1.step(-1);
+  stepper2.step(2);
+  stepper1.step(-1);
+  stepper2.step(1);
+  stepper1.step(-1);
+  stepper2.step(2);
+  stepper1.step(-1);
+  stepper2.step(2);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(-4);
+  stepper1.step(3);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-3);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper2.step(-1);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper1.step(3);
+  stepper2.step(1);
+
+
+}
+void t() {
+  stepper1.step(1);
+  stepper1.step(5);
+  stepper2.step(3);
+  stepper1.step(5);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper2.step(5);
+  stepper2.step(5);
+  stepper1.step(-2);
+  stepper2.step(5);
+  stepper1.step(-2);
+  stepper2.step(6);
+  stepper1.step(-3);
+  stepper2.step(5);
+
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-4);
+  stepper2.step(-4);
+  stepper1.step(2);
+  stepper2.step(-5);
+  stepper1.step(1);
+  stepper2.step(-5);
+  stepper1.step(2);
+  stepper2.step(-5);
+  stepper1.step(3);
+  stepper2.step(-5);
+  stepper1.step(3);
+  stepper2.step(-6);
+  stepper1.step(4);
+  stepper2.step(-6);
+
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper2.step(4);
+  stepper1.step(-2);
+  stepper2.step(3);
+  stepper1.step(-2);
+  stepper2.step(3);
+  stepper1.step(-3);
+  stepper2.step(3);
+  stepper1.step(-3);
+  stepper2.step(3);
+  stepper1.step(-4);
+  stepper2.step(3);
+  stepper1.step(-4);
+  stepper2.step(2);
+  stepper1.step(-5);
+  stepper2.step(2);
+  stepper1.step(-5);
+  stepper2.step(2);
+  stepper1.step(-6);
+  stepper2.step(2);
+
+  stepper1.step(1);
+  stepper1.step(4);
+  stepper2.step(-2);
+  stepper1.step(4);
+  stepper2.step(-2);
+  stepper1.step(5);
+  stepper2.step(-1);
+  stepper1.step(4);
+  stepper2.step(-1);
+  stepper1.step(5);
+  stepper1.step(4);
+  stepper1.step(5);
+  stepper2.step(1);
+  stepper1.step(5);
+  stepper2.step(1);
+  stepper1.step(5);
+  stepper2.step(1);
+  stepper1.step(5);
+  stepper2.step(2);
+
+  stepper1.step(1);
+  stepper1.step(-7);
+  stepper2.step(-2);
+  stepper1.step(-6);
+  stepper2.step(-3);
+  stepper1.step(-4);
+  stepper2.step(-2);
+  stepper1.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(3);
+  stepper2.step(-3);
+  stepper1.step(4);
+  stepper2.step(-3);
+  stepper1.step(6);
+  stepper2.step(-3);
+  stepper1.step(8);
+  stepper2.step(-4);
+
+}
+void u() {
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper2.step(-5);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper2.step(-3);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(5);
+  stepper1.step(2);
+  stepper2.step(5);
+
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper2.step(-5);
+  stepper1.step(-2);
+  stepper2.step(-5);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper2.step(-4);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper1.step(4);
+
+}
+void v() {
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(1);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-5);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-4);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(3);
+  stepper2.step(1);
+
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper2.step(-1);
+  stepper1.step(-1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper2.step(1);
+
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-2);
+
+}
+void w() {
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper2.step(-4);
+  stepper1.step(-2);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper1.step(1);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(5);
+
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper2.step(1);
+  stepper1.step(-1);
+  stepper2.step(-1);
+  stepper1.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper2.step(-2);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper2.step(-2);
+
+
+}
+
+void x() {
+
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(3);
+  stepper2.step(-2);
+  stepper1.step(3);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-3);
+  stepper2.step(-2);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(2);
+
+  stepper1.step(1);
+  stepper1.step(-4);
+  stepper2.step(-2);
+  stepper1.step(-3);
+  stepper2.step(-2);
+  stepper1.step(-2);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper2.step(-3);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper1.step(2);
+  stepper2.step(-3);
+  stepper1.step(3);
+  stepper2.step(-3);
+  stepper1.step(3);
+  stepper2.step(-2);
+
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper1.step(1);
+  stepper2.step(-1);
+  stepper1.step(1);
+  stepper1.step(1);
+
+}
+
+
+void y() {
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(-1);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-3);
+  stepper2.step(-4);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-3);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-1);
+
+  stepper1.step(1);
+  stepper1.step(4);
+  stepper2.step(1);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(3);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper2.step(4);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(1);
+
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper2.step(-7);
+  stepper1.step(-2);
+  stepper2.step(-7);
+  stepper1.step(-2);
+  stepper2.step(-8);
+  stepper1.step(-1);
+  stepper2.step(-7);
+  stepper1.step(-2);
+  stepper2.step(-7);
+  stepper1.step(-2);
+  stepper2.step(-7);
+  stepper1.step(-1);
+  stepper2.step(-6);
+  stepper1.step(-2);
+  stepper2.step(-6);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(-2);
+  stepper2.step(-3);
+
+  stepper1.step(1);
+  stepper1.step(-2);
+  stepper1.step(-2);
+  stepper2.step(2);
+  stepper2.step(3);
+  stepper2.step(5);
+  stepper1.step(1);
+  stepper2.step(6);
+  stepper1.step(2);
+  stepper2.step(5);
+  stepper1.step(3);
+  stepper2.step(5);
+  stepper1.step(4);
+  stepper2.step(4);
+  stepper1.step(5);
+  stepper2.step(2);
+  stepper1.step(5);
+  stepper2.step(1);
+}
+
+void z() {
+  stepper1.step(1);
+  stepper1.step(4);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(3);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(3);
+  stepper1.step(1);
+  stepper2.step(2);
+  stepper1.step(2);
+  stepper2.step(2);
+  stepper1.step(2);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(1);
+  stepper2.step(-2);
+  stepper2.step(-3);
+  stepper2.step(-3);
+  stepper1.step(-1);
+  stepper2.step(-4);
+  stepper1.step(-2);
+  stepper2.step(-4);
+  stepper1.step(-2);
+  stepper2.step(-4);
+  stepper1.step(-3);
+  stepper2.step(-3);
+  stepper1.step(-4);
+  stepper2.step(-3);
+
+  stepper1.step(1);
+  stepper1.step(2);
+  stepper2.step(1);
+  stepper1.step(2);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-2);
+  stepper1.step(2);
+  stepper2.step(-4);
+  stepper1.step(1);
+  stepper2.step(-4);
+  stepper2.step(-6);
+  stepper2.step(-5);
+  stepper1.step(-2);
+  stepper2.step(-6);
+  stepper1.step(-2);
+  stepper2.step(-5);
+
+  stepper1.step(1);
+  stepper1.step(-3);
+  stepper1.step(-1);
+  stepper2.step(2);
+  stepper1.step(-1);
+  stepper2.step(2);
+  stepper1.step(1);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(5);
+  stepper1.step(4);
+  stepper2.step(5);
+  stepper1.step(4);
+  stepper2.step(4);
+  stepper1.step(3);
+  stepper2.step(4);
+  stepper1.step(2);
+  stepper2.step(4);
+
+}
